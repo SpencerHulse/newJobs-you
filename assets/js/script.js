@@ -14,8 +14,17 @@ var jobsHandler = (event) => {
    
 }
 var fetchLocation= () => {
-    console.log(currentZip)
+    var zipApi= "http://ziptasticapi.com/" + currentZip;
+    fetch(zipApi).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                console.log(data)
+            })
+        }
+    })
 }
+
+
 
 //eventlisteners
 jobsBtn.on("click",jobsHandler)
