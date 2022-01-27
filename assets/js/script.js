@@ -8,7 +8,7 @@ var nextPage=$("#next-page");
 var currentZip = "";
 var currentCity = "";
 var currentState ="";
-
+var page =1;
 
 var jobsHandler = (event) => {
     event.preventDefault();
@@ -35,6 +35,14 @@ var fetchLocation= () => {
 }
 
 var fetchJobs = () => {
+    var museAPI = `https://www.themuse.com/api/public/jobs?category=Software%20Engineer&location=${currentCity}%2C%20${currentState}&page=${page}`
+    fetch(museAPI).then(function (response) {
+        response.json().then(function (data) {
+            console.log(data.results);
+        }).catch(function (error) {
+            console.log(error);
+        })
+    })
 }
 
 //eventlisteners
