@@ -73,11 +73,15 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1.5rem;
 }
 
 .card {
     background-color: white;
     border-radius: 0.25rem;
+    margin: 0;
+    height: 200px;
+    width: 800px;
 }
 
 .card * {
