@@ -45,5 +45,21 @@ var fetchJobs = () => {
     })
 }
 
+function previousPg() {
+    if (page === 1) {
+        return;
+    } else {
+        page--;
+        fetchJobs();
+    }
+}
+
+function nextPg() {
+    page++;
+    fetchJobs();
+}
+
 //eventlisteners
-jobsBtn.on("click",jobsHandler)
+jobsBtn.on("click",jobsHandler);
+previousPage.on("click", previousPg);
+nextPage.on("click", nextPg);
