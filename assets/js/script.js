@@ -23,9 +23,8 @@ function createJobCards(jobsArray) {
         .addClass("card-reveal");
 
         var revealSpan = $("<span>")
-        .addClass("reveal-title")
-        .val("Reveal Title")
-        .html("<i class='material-icons right'>close</i>");
+        .addClass("card-title")
+        .html("Reveal Title <i class='material-icons right'>close</i>");
 
         var revealText = $("<p>")
         .text(job);
