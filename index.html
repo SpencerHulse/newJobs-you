@@ -5,18 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>newJobs(you) - Job Listings</title>
+    <!-- materialize files -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- custom fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap"
       rel="stylesheet"
     />
+    <!-- css stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <!-- header for logo, zip input, and search button -->
     <header>
       <div></div>
       <form action="">
@@ -24,18 +31,28 @@
         <button class="btn jobs-btn">Find Jobs!</button>
       </form>
     </header>
+    <!-- div for dynamically created cards -->
     <div>Job Cards</div>
+    <!-- div for pagination -->
     <div class="pagination">
-      <button class="btn pagination-btn" id="previous-page">Previous Page</button>
+      <!-- previous page button -->
+      <button class="btn pagination-btn" id="previous-page">
+        Previous Page
+      </button>
+      <!-- next page button -->
       <button class="btn pagination-btn" id="next-page">Next Page</button>
     </div>
+    <!-- footer for API and technical info -->
     <footer>Used APIs, etc</footer>
+    <!-- jQuery script -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
       integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
       crossorigin="anonymous"
     ></script>
+    <!-- materialize js file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- js file -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
