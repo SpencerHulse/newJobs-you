@@ -4,12 +4,18 @@ var jobsBtn=$(".jobs-btn");
 var previousPage=$("#previous-page");
 var nextPage=$("#next-page");
 
-var fetchJobs = (event) => {
+//global variables
+var currentZip = "";
+
+var jobsHandler = (event) => {
     event.preventDefault();
-    var enteredZip = zipCode.val();
+    currentZip = zipCode.val();
+    fetchLocation();
    
 }
-
+var fetchLocation= () => {
+    console.log(currentZip)
+}
 
 //eventlisteners
-jobsBtn.on("click",fetchJobs)
+jobsBtn.on("click",jobsHandler)
