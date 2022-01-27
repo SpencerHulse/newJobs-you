@@ -80,6 +80,8 @@ main {
     background-color: white;
     border-radius: 0.25rem;
     margin: 0;
+    height: 200px;
+    width: 800px;
 }
 
 .card * {

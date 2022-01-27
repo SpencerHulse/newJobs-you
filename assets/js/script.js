@@ -6,29 +6,34 @@ function createJobCards(jobsArray) {
 
         var jobItem = $("<div>")
         .addClass("card job-card")
-        .attr("id", index);
+        .attr("id", index)
+        .appendTo($(".cards-container"));
 
         var cardContent = $("<div>")
         .addClass("card-content white-text");
 
         var cardTitle = $("<span>")
-        .addClass("card-title")
+        .addClass("card-title activator")
         .text("Job Title");
 
         var cardText = $("<p>")
-        .text("Company Name", job);
+        .text("Company Name");
 
-        var cardAction = $("<div>")
-        .addClass("card-action");
+        var cardReveal = $("<div>")
+        .addClass("card-reveal");
 
-        var link = $("<a>")
-        .attr("href", "#")
-        .text("This is a link");
+        var revealSpan = $("<span>")
+        .addClass("reveal-title")
+        .val("Reveal Title")
+        .html("<i class='material-icons right'>close</i>");
+
+        var revealText = $("<p>")
+        .text(job);
 
         cardContent.append(cardTitle, cardText);
-        cardAction.append(link);
-        jobItem.append(cardContent, cardAction);
-        $(".cards-container").append(jobItem);
+        cardReveal.append(revealSpan, revealText);
+        jobItem.append(cardContent, cardReveal);
+       
 
     })
 }
