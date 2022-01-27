@@ -13,10 +13,10 @@ function createJobCards(jobsArray) {
 
         var cardTitle = $("<span>")
         .addClass("card-title")
-        .text("Card Title");
+        .text("Job Title");
 
         var cardText = $("<p>")
-        .text(job);
+        .text("Company Name", job);
 
         var cardAction = $("<div>")
         .addClass("card-action");
