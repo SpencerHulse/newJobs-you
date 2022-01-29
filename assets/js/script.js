@@ -3,6 +3,7 @@ var zipCode = $(".zip-code");
 var jobsBtn = $(".jobs-btn");
 var previousPage = $("#previous-page");
 var nextPage = $("#next-page");
+var cardContainer = $(".cards-container");
 
 //global variables
 var currentZip = "";
@@ -20,7 +21,8 @@ var jobsHandler = (event) => {
   console.log(currentZip);
   //if the value does not have a length of five, it does not proceed
   if (currentZip.length !== 5) {
-    //Not a valid Zip Code!
+    //FEATURE: potentially make this response a modal to tell people why it did not work
+    console.log("Not a valid Zip Code!");
     return;
   }
 
@@ -92,6 +94,7 @@ function previousPg() {
     return;
   } else {
     page--;
+    cardContainer.empty();
     fetchJobs();
   }
 }
@@ -99,6 +102,7 @@ function previousPg() {
 //function to go to the next page
 function nextPg() {
   page++;
+  cardContainer.empty();
   fetchJobs();
 }
 
@@ -108,14 +112,11 @@ previousPage.on("click", previousPg);
 nextPage.on("click", nextPg);
 
 function createJobCards(jobsArray) {
-  console.log(jobsArray);
   jobsArray.forEach(function (job, index) {
-    console.log(job, index);
-
     var jobItem = $("<div>")
       .addClass("card job-card")
       .attr("id", index)
-      .appendTo($(".cards-container"));
+      .appendTo(cardContainer);
 
     var cardContent = $("<div>").addClass("card-content white-text");
 
