@@ -12,43 +12,75 @@ var page = 1;
 
 //jobs handler for clicking search button
 var jobsHandler = (event) => {
+  //prevents page from refreshing upon submit
   event.preventDefault();
+
+  //gets the value entered into the zip code input
   currentZip = zipCode.val();
+  console.log(currentZip);
+  //if the value does not have a length of five, it does not proceed
+  if (currentZip.length !== 5) {
+    //Not a valid Zip Code!
+    return;
+  }
+
+  //fetches the location using the five character input
   fetchLocation();
 };
 
 //fetches zip API information
 var fetchLocation = () => {
+  //plugs the zip code into the api
   var zipAPI = "http://ziptasticapi.com/" + currentZip;
+
+  //sends a fetch request
   fetch(zipAPI)
     .then(function (response) {
+      //if the response is successful, it gets the data from the response
       response.json().then(function (data) {
-        console.log(data);
-        //handles capitalizing the first letter of each part of the city name
-        var cityArr = data.city.split(" ");
-        for (var i = 0; i < cityArr.length; i++) {
-          cityArr[i] = cityArr[i].charAt(0) + cityArr[i].toLowerCase().slice(1);
+        //if there is no error, data is logged (city and state)
+        if (!data.error) {
+          console.log(data);
+          //breaks the returned city name into an array
+          var cityArr = data.city.split(" ");
+          //capitalizes the first letter of each part of the city name
+          for (var i = 0; i < cityArr.length; i++) {
+            cityArr[i] =
+              cityArr[i].charAt(0) + cityArr[i].toLowerCase().slice(1);
+          }
+          //joins the parts of the city name and stores it
+          currentCity = cityArr.join(" ");
+          //stores state abbreviation
+          currentState = data.state;
+
+          //launches the fetch jobs function
+          fetchJobs();
+        } else {
+          //FEATURE: potentially make this response a modal to tell people why it did not work
+          console.log(data.error);
         }
-        currentCity = cityArr.join(" ");
-        currentState = data.state;
-        fetchJobs();
       });
     })
     .catch(function (error) {
+      //FEATURE: potentially make this response a modal to tell people why it did not work
       console.log(error);
     });
 };
 
 //function for getting job information
 var fetchJobs = () => {
+  //plugs in the city, state, and page into the api
   var museAPI = `https://www.themuse.com/api/public/jobs?category=Software%20Engineer&location=${currentCity}%2C%20${currentState}&page=${page}`;
+
+  //fetches data from the api
   fetch(museAPI).then(function (response) {
     response
       .json()
       .then(function (data) {
-        console.log(data.results);
+        createJobCards(data.results);
       })
       .catch(function (error) {
+        //FEATURE: potentially make this response a modal to tell people why it did not work
         console.log(error);
       });
   });
@@ -70,48 +102,39 @@ function nextPg() {
   fetchJobs();
 }
 
-//eventlisteners
+//event listeners
 jobsBtn.on("click", jobsHandler);
 previousPage.on("click", previousPg);
 nextPage.on("click", nextPg);
 
-const testArray = ['1', '2', '3', '4', '5'];
-
 function createJobCards(jobsArray) {
-    jobsArray.forEach(function(job, index) {
-        console.log(job, index);
+  console.log(jobsArray);
+  jobsArray.forEach(function (job, index) {
+    console.log(job, index);
 
-        var jobItem = $("<div>")
-        .addClass("card job-card")
-        .attr("id", index)
-        .appendTo($(".cards-container"));
+    var jobItem = $("<div>")
+      .addClass("card job-card")
+      .attr("id", index)
+      .appendTo($(".cards-container"));
 
-        var cardContent = $("<div>")
-        .addClass("card-content white-text");
+    var cardContent = $("<div>").addClass("card-content white-text");
 
-        var cardTitle = $("<span>")
-        .addClass("card-title activator")
-        .text("Job Title");
+    var cardTitle = $("<span>")
+      .addClass("card-title activator")
+      .text("Job Title");
 
-        var cardText = $("<p>")
-        .text("Company Name");
+    var cardText = $("<p>").text("Company Name");
 
-        var cardReveal = $("<div>")
-        .addClass("card-reveal");
+    var cardReveal = $("<div>").addClass("card-reveal");
 
-        var revealSpan = $("<span>")
-        .addClass("card-title")
-        .html("Reveal Title <i class='material-icons right'>close</i>");
+    var revealSpan = $("<span>")
+      .addClass("card-title")
+      .html("Reveal Title <i class='material-icons right'>close</i>");
 
-        var revealText = $("<p>")
-        .text(job);
+    var revealText = $("<p>").text(job);
 
-        cardContent.append(cardTitle, cardText);
-        cardReveal.append(revealSpan, revealText);
-        jobItem.append(cardContent, cardReveal);
-       
-
-    })
+    cardContent.append(cardTitle, cardText);
+    cardReveal.append(revealSpan, revealText);
+    jobItem.append(cardContent, cardReveal);
+  });
 }
-
-createJobCards(testArray);
