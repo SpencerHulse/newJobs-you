@@ -121,9 +121,18 @@ function createJobCards(jobsArray) {
 
     var cardTitle = $("<span>")
       .addClass("card-title activator")
-      .text("Job Title");
+      .text(job.company.name);
 
-    var cardText = $("<p>").text("Company Name");
+    var cardText = $("<p>").text(job.name);
+
+    var cardExperience = $("<p>").text(job.levels[0].name);
+
+    var locations = "";
+    for (var count = 0; count < job.locations.length; count++) {
+      locations += " " + job.locations[count].name;
+    }
+
+    var cardLocations = $("<p>").text(locations.trim());
 
     var cardReveal = $("<div>").addClass("card-reveal");
 
@@ -131,9 +140,9 @@ function createJobCards(jobsArray) {
       .addClass("card-title")
       .html("Reveal Title <i class='material-icons right'>close</i>");
 
-    var revealText = $("<p>").text(job);
+    var revealText = $("<p>").text(job.refs.landing_page);
 
-    cardContent.append(cardTitle, cardText);
+    cardContent.append(cardTitle, cardText, cardExperience, cardLocations);
     cardReveal.append(revealSpan, revealText);
     jobItem.append(cardContent, cardReveal);
   });
