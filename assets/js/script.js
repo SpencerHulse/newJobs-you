@@ -114,11 +114,11 @@ nextPage.on("click", nextPg);
 function createJobCards(jobsArray) {
   jobsArray.forEach(function (job, index) {
     var jobItem = $("<div>")
-      .addClass("card job-card")
+      .addClass("job-card card col s5")
       .attr("id", index)
       .appendTo(cardContainer);
 
-    var cardContent = $("<div>").addClass("card-content white-text");
+    var cardContent = $("<div>").addClass("card-content");
 
     var cardTitle = $("<span>")
       .addClass("card-title activator")
@@ -139,9 +139,12 @@ function createJobCards(jobsArray) {
 
     var revealSpan = $("<span>")
       .addClass("card-title")
-      .html("Reveal Title <i class='material-icons right'>close</i>");
+      .html(job.name +  "<i class='material-icons right'>close</i>");
 
-    var revealText = $("<p>").text(job.refs.landing_page);
+    var revealText = $("<a>")
+      .attr('href', job.refs.landing_page)
+      .attr('target', '_blank')
+      .text('Muse Page');
 
     cardContent.append(cardTitle, cardText, cardExperience, cardLocations);
     cardReveal.append(revealSpan, revealText);
