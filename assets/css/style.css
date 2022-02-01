@@ -29,10 +29,22 @@ html {
 
 .search-container form {
   margin-top: 2rem;
+  display: flex;
 }
 
 .search-input {
   height: auto;
+}
+
+.zip-code {
+  text-align: center;
+  font-size: 23px !important;
+  width: 150px !important;
+}
+
+.jobs-btn {
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
 nav {

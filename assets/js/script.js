@@ -1,5 +1,6 @@
 //element selectors
 var zipCode = $(".zip-code");
+var mainZipCode = $(".main-zip-code");
 var jobsBtn = $(".jobs-btn");
 var previousPage = $("#previous-page");
 var nextPage = $("#next-page");
@@ -18,12 +19,19 @@ var jobsHandler = (event) => {
 
   //gets the value entered into the zip code input
   currentZip = zipCode.val();
-  console.log(currentZip);
   //if the value does not have a length of five, it does not proceed
   if (currentZip.length !== 5) {
     //FEATURE: potentially make this response a modal to tell people why it did not work
     console.log("Not a valid Zip Code!");
     return;
+  }
+
+  //saves searched zip code
+  saveZipCode();
+
+  //changes location if on landing page
+  if ($(event.target).hasClass("jobs-btn-lp")) {
+    window.location = "./index.html";
   }
 
   //fetches the location using the five character input
@@ -34,6 +42,9 @@ var jobsHandler = (event) => {
 var fetchLocation = () => {
   //plugs the zip code into the api
   var zipAPI = "https://ziptasticapi.com/" + currentZip;
+
+  //places the zip code searched into the zip code input on main page
+  mainZipCode.val(currentZip);
 
   //sends a fetch request
   fetch(zipAPI)
@@ -106,6 +117,25 @@ function nextPg() {
   fetchJobs();
 }
 
+function saveZipCode() {
+  //saves searched zip code
+  localStorage.setItem("zip", JSON.stringify(currentZip));
+}
+
+function loadZipCode() {
+  //returns the data from its stringified version
+  currentZip = JSON.parse(localStorage.getItem("zip"));
+
+  //if there is nothing in localstorage, it stops here
+  if (!currentZip) {
+    //starts with a clean variable
+    currentZip = "";
+    return;
+  }
+
+  fetchLocation();
+}
+
 //event listeners
 jobsBtn.on("click", jobsHandler);
 previousPage.on("click", previousPg);
@@ -139,15 +169,17 @@ function createJobCards(jobsArray) {
 
     var revealSpan = $("<span>")
       .addClass("card-title")
-      .html(job.name +  "<i class='material-icons right'>close</i>");
+      .html(job.name + "<i class='material-icons right'>close</i>");
 
     var revealText = $("<a>")
-      .attr('href', job.refs.landing_page)
-      .attr('target', '_blank')
-      .text('Muse Page');
+      .attr("href", job.refs.landing_page)
+      .attr("target", "_blank")
+      .text("Muse Page");
 
     cardContent.append(cardTitle, cardText, cardExperience, cardLocations);
     cardReveal.append(revealSpan, revealText);
     jobItem.append(cardContent, cardReveal);
   });
 }
+
+loadZipCode();
