@@ -163,7 +163,9 @@ function createJobCards(jobsArray) {
       locations += " " + job.locations[count].name;
     }
 
-    var cardLocations = $("<p>").text(locations.trim());
+    var cardLocations = $("<p>")
+    .addClass('truncate')
+    .text(locations.trim());
 
     var cardReveal = $("<div>").addClass("card-reveal");
 
