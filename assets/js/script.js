@@ -33,7 +33,7 @@ var jobsHandler = (event) => {
 //fetches zip API information
 var fetchLocation = () => {
   //plugs the zip code into the api
-  var zipAPI = "http://ziptasticapi.com/" + currentZip;
+  var zipAPI = "https://ziptasticapi.com/" + currentZip;
 
   //sends a fetch request
   fetch(zipAPI)
