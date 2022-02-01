@@ -15,7 +15,7 @@ html {
     background-color: var(--slate);
 }
 
-header {
+.search-container {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -24,9 +24,10 @@ header {
     align-items: center;
     border-bottom: 1px solid grey;
     height: auto;
+    padding-bottom: 20px;
 }
 
-header form {
+.search-container form {
     margin-top: 2rem;
 }
 
@@ -102,4 +103,14 @@ main {
 .info-container .card-panel {
     background-color: var(--splitochre);
     height: 100%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.pagination-btn {
+    width: 138px;
 }
