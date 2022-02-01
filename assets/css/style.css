@@ -58,51 +58,53 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-
-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 30px;
-    gap: 0.7rem;
-}
-
 .cards-container {
-    width: 30vw;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: 3rem;
 }
 
-.card {
-    background-color: white;
-    border-radius: 0.25rem;
-    margin: 0;
-    height: 200px;
-    width: 800px;
-}
-
-.card * {
+.job-card {
+    border: 1px solid var(--slate);
+    padding: 1rem;
     color: black;
+    margin: 0 !important;
+    height: 25vh;
 }
 
-.info-container {
-    position: sticky;
-    top: 0;
-    width: 20%;
+.card-reveal {
+    overflow-x: hidden;
 }
 
-.info-container .info-card {
-    width: 100% !important;
-    height: 50%;
+.card-reveal > .card-title {
+    font-size: 12px;
+    display: flex !important;
+    align-items: flex-start;
+    margin-bottom: 2rem;
 }
 
-.info-container .card-panel {
-    background-color: var(--splitochre);
-    height: 100%;
+.card-reveal > a {
+    width: max-content;
+    height: max-content;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .pagination {
