@@ -1,105 +1,103 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    --splitred: rgb(147 40 44);
-    --compochre: rgb(139 91 41);
-    --slate: rgb(35 97 146);
-    --splitochre: rgb(141 139 83);
-    --jade: rgb(39 153 137);
-    --vio: rgb(47 42 149);
+  --splitred: rgb(147 40 44);
+  --compochre: rgb(139 91 41);
+  --slate: rgb(35 97 146);
+  --splitochre: rgb(141 139 83);
+  --jade: rgb(39 153 137);
+  --vio: rgb(47 42 149);
 }
 
 html {
-    background-color: var(--slate);
+  background-color: var(--slate);
 }
 
 header {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid grey;
-    height: auto;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  height: auto;
 }
 
 header form {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .search-input {
-    height: auto;
+  height: auto;
 }
 
 nav {
-    width: 100%;
-    background-color: whitesmoke;
-    border-radius: 0.25rem 0.25rem 0 0;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    padding: 1rem;
-
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 0.25rem 0.25rem 0 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  padding: 1rem;
 }
 
 nav * {
-    color: black !important;
-    text-decoration: none;
+  color: black !important;
+  text-decoration: none;
 }
 
 body {
-    margin: 0;
-    background-color: whitesmoke;
-    border-radius: 0.25rem;
-    margin: 1.5rem 1.5rem 0 1.5rem;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: whitesmoke;
+  border-radius: 0.25rem;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+  font-family: "Poppins", sans-serif;
 }
 
-
 main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 30px;
-    gap: 0.7rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 0.7rem;
 }
 
 .cards-container {
-    width: 30vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
+  width: 30vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .card {
-    background-color: white;
-    border-radius: 0.25rem;
-    margin: 0;
-    height: 200px;
-    width: 800px;
+  background-color: white;
+  border-radius: 0.25rem;
+  margin: 0;
+  height: 200px;
+  width: 800px;
 }
 
 .card * {
-    color: black;
+  color: black;
 }
 
 .info-container {
-    position: sticky;
-    top: 0;
-    width: 20%;
+  position: sticky;
+  top: 0;
+  width: 20%;
 }
 
 .info-container .info-card {
-    width: 100% !important;
-    height: 50%;
+  width: 100% !important;
+  height: 50%;
 }
 
 .info-container .card-panel {
-    background-color: var(--splitochre);
-    height: 100%;
+  background-color: var(--splitochre);
+  height: 100%;
 }
