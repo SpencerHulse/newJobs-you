@@ -90,6 +90,9 @@ body {
     height: max-content;
 }
 
+.row::after {
+    content: none !important;
+}
 
 ::-webkit-scrollbar {
     width: 10px;
