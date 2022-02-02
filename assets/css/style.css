@@ -107,7 +107,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 3rem;
 }
 
 .job-card {
@@ -187,6 +186,8 @@ footer {
 }
 
 #city-state {
-  font-size: 20px;
+  font-size: 2vw;
   text-align: center;
+  font-weight: 600;
+  color:rgb(35,167,153);
 }
