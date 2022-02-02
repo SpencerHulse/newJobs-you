@@ -21,8 +21,7 @@ var jobsHandler = (event) => {
   currentZip = zipCode.val();
   //if the value does not have a length of five, it does not proceed
   if (currentZip.length !== 5) {
-    //FEATURE: potentially make this response a modal to tell people why it did not work
-    console.log("Not a valid Zip Code!");
+    M.toast({ html: "This is not a valid Zip Code!" });
     return;
   }
 
@@ -45,7 +44,7 @@ var fetchLocation = () => {
 
   //places the zip code searched into the zip code input on main page
   mainZipCode.val(currentZip);
-  
+
   //sends a fetch request
   fetch(zipAPI)
     .then(function (response) {
@@ -69,14 +68,13 @@ var fetchLocation = () => {
           //launches the fetch jobs function
           fetchJobs();
         } else {
-          //FEATURE: potentially make this response a modal to tell people why it did not work
-          console.log(data.error);
+          M.toast({ html: data.error });
         }
       });
     })
     .catch(function (error) {
       //FEATURE: potentially make this response a modal to tell people why it did not work
-      console.log(error);
+      M.toast({ html: error });
     });
 };
 
@@ -93,8 +91,7 @@ var fetchJobs = () => {
         createJobCards(data.results);
       })
       .catch(function (error) {
-        //FEATURE: potentially make this response a modal to tell people why it did not work
-        console.log(error);
+        M.toast({ html: error });
       });
   });
 };
@@ -105,7 +102,6 @@ function previousPg() {
     return;
   } else {
     page--;
-    cardContainer.empty();
     fetchJobs();
   }
 }
@@ -113,7 +109,6 @@ function previousPg() {
 //function to go to the next page
 function nextPg() {
   page++;
-  cardContainer.empty();
   fetchJobs();
 }
 
@@ -142,12 +137,12 @@ previousPage.on("click", previousPg);
 nextPage.on("click", nextPg);
 
 function createJobCards(jobsArray) {
-  $('.cards-container').html('');
-  
+  cardContainer.empty();
+
   jobsArray.forEach(function (job, index) {
     var locationsArray = [];
     var jobItem = $("<div>")
-      .addClass("job-card card col s5")
+      .addClass("job-card card col s10 m5")
       .attr("id", index)
       .appendTo(cardContainer);
 
@@ -165,11 +160,11 @@ function createJobCards(jobsArray) {
       .html(job.name + "<i class='material-icons right'>close</i>");
 
     var dl = $("<dl>");
-    var dt = $("<dt>").text('Locations');
-    job.locations.forEach(function(currentValue) {
-      var dd = $('<dd>').text('- ' + currentValue.name);
+    var dt = $("<dt>").text("Locations");
+    job.locations.forEach(function (currentValue) {
+      var dd = $("<dd>").text("- " + currentValue.name);
       dt.append(dd);
-    })
+    });
 
     var cardExperience = $("<p>").text(job.levels[0].name);
 

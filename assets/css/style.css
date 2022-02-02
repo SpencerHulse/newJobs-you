@@ -102,11 +102,11 @@ body {
 }
 
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
 }
 
 .job-card {
@@ -115,6 +115,7 @@ body {
   color: black;
   margin: 0 !important;
   height: 25vh;
+  min-height: 200px !important;
 }
 
 .card-title {
@@ -135,6 +136,7 @@ body {
   display: flex !important;
   align-items: flex-start;
   margin-bottom: 1rem;
+  justify-content: space-between;
 }
 
 .card-reveal > a {
