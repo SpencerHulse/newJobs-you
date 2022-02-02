@@ -66,6 +66,10 @@ nav * {
   text-decoration: none;
 }
 
+main {
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   background-color: whitesmoke;
@@ -112,6 +116,15 @@ body {
   height: 25vh;
 }
 
+.card-title {
+  font-weight: 600 !important;
+  color: var(--slate);
+}
+
+.card-content {
+  height: 100% !important;
+}
+
 .card-reveal {
   overflow-x: hidden;
 }
@@ -120,12 +133,16 @@ body {
   font-size: 12px;
   display: flex !important;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .card-reveal > a {
   width: max-content;
   height: max-content;
+}
+
+dd {
+  margin-left: 1rem;
 }
 
 .row::after {

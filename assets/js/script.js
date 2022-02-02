@@ -143,6 +143,7 @@ nextPage.on("click", nextPg);
 
 function createJobCards(jobsArray) {
   jobsArray.forEach(function (job, index) {
+    var locationsArray = [];
     var jobItem = $("<div>")
       .addClass("job-card card col s5")
       .attr("id", index)
@@ -155,31 +156,30 @@ function createJobCards(jobsArray) {
       .text(job.company.name);
 
     var cardText = $("<p>").text(job.name);
-
-    var cardExperience = $("<p>").text(job.levels[0].name);
-
-    var locations = "";
-    for (var count = 0; count < job.locations.length; count++) {
-      locations += " " + job.locations[count].name;
-    }
-
-    var cardLocations = $("<p>")
-    .addClass('truncate')
-    .text(locations.trim());
-
     var cardReveal = $("<div>").addClass("card-reveal");
 
-    var revealSpan = $("<span>")
+    var revealTitle = $("<span>")
       .addClass("card-title")
       .html(job.name + "<i class='material-icons right'>close</i>");
 
-    var revealText = $("<a>")
+    var dl = $("<dl>");
+    var dt = $("<dt>").text('Locations');
+    job.locations.forEach(function(currentValue) {
+      console.log(currentValue.name);
+      var dd = $('<dd>').text('- ' + currentValue.name);
+      dt.append(dd);
+    })
+
+    var cardExperience = $("<p>").text(job.levels[0].name);
+
+    var revealLink = $("<a>")
       .attr("href", job.refs.landing_page)
       .attr("target", "_blank")
       .text("Muse Page");
 
-    cardContent.append(cardTitle, cardText, cardExperience, cardLocations);
-    cardReveal.append(revealSpan, revealText);
+    cardContent.append(cardTitle, cardText);
+    cardReveal.append(revealTitle, revealLink, cardExperience, dl);
+    dl.append(dt);
     jobItem.append(cardContent, cardReveal);
   });
 }
