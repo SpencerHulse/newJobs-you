@@ -28,8 +28,9 @@ html {
 }
 
 .search-container img {
-  width: 40vw;
+  width: 30vw;
   height: auto;
+  padding-top: 1rem;
 }
 
 .search-container form {
