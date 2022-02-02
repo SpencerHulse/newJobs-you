@@ -5,6 +5,7 @@ var jobsBtn = $(".jobs-btn");
 var previousPage = $("#previous-page");
 var nextPage = $("#next-page");
 var cardContainer = $(".cards-container");
+var cityState = $("#city-state");
 
 //global variables
 var currentZip = "";
@@ -138,6 +139,9 @@ nextPage.on("click", nextPg);
 
 function createJobCards(jobsArray) {
   cardContainer.empty();
+
+  cityState.empty();
+  cityState.append($("<p>" + currentCity + ", " + currentState + "</p>"));
 
   jobsArray.forEach(function (job, index) {
     var locationsArray = [];
