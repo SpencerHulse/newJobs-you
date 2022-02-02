@@ -180,4 +180,12 @@ dd {
 
 footer {
   text-align: center;
+  border-top: 1px solid grey;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+#city-state {
+  font-size: 20px;
+  text-align: center;
 }
