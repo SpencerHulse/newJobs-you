@@ -45,7 +45,7 @@ var fetchLocation = () => {
 
   //places the zip code searched into the zip code input on main page
   mainZipCode.val(currentZip);
-
+  
   //sends a fetch request
   fetch(zipAPI)
     .then(function (response) {
@@ -142,6 +142,8 @@ previousPage.on("click", previousPg);
 nextPage.on("click", nextPg);
 
 function createJobCards(jobsArray) {
+  $('.cards-container').html('');
+  
   jobsArray.forEach(function (job, index) {
     var locationsArray = [];
     var jobItem = $("<div>")
@@ -165,7 +167,6 @@ function createJobCards(jobsArray) {
     var dl = $("<dl>");
     var dt = $("<dt>").text('Locations');
     job.locations.forEach(function(currentValue) {
-      console.log(currentValue.name);
       var dd = $('<dd>').text('- ' + currentValue.name);
       dt.append(dd);
     })
