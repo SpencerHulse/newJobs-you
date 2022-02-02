@@ -73,12 +73,22 @@ body {
   margin: 1.5vh;
   height: 97vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+#landing-page-body > img {
+  width: 40vw;
+  height: auto;
+}
+
 #landing-page-body > .search-container {
   border-bottom: none;
+}
+
+#landing-page-body > .search-container > form {
+  flex-direction: column;
 }
 
 .cards-container {
