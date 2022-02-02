@@ -184,4 +184,8 @@ function createJobCards(jobsArray) {
   });
 }
 
+$("#jobs-page-image").on("click", function() {
+  window.location = "./landingpage.html";
+})
+
 loadZipCode();
