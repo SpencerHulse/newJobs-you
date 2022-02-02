@@ -1,101 +1,193 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    --splitred: rgb(147 40 44);
-    --compochre: rgb(139 91 41);
-    --slate: rgb(35 97 146);
-    --splitochre: rgb(141 139 83);
-    --jade: rgb(39 153 137);
-    --vio: rgb(47 42 149);
+  --splitred: rgb(147 40 44);
+  --compochre: rgb(139 91 41);
+  --slate: rgb(35 97 146);
+  --splitochre: rgb(141 139 83);
+  --jade: rgb(39 153 137);
+  --vio: rgb(47 42 149);
 }
 
 html {
-    background-color: var(--slate);
+  background-color: var(--slate);
 }
 
-header {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid grey;
-    height: auto;
+.search-container {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  height: auto;
+  padding: 20px 0;
 }
 
-header form {
-    margin-top: 2rem;
+.search-container img {
+  width: 30vw;
+  height: auto;
+  padding-top: 1rem;
+  cursor: pointer;
+}
+
+.search-container form {
+  margin-top: 2rem;
+  display: flex;
 }
 
 .search-input {
-    height: auto;
+  height: auto;
+}
+
+.zip-code {
+  text-align: center;
+  font-size: 23px !important;
+  width: 150px !important;
+}
+
+.jobs-btn {
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
 nav {
-    width: 100%;
-    background-color: whitesmoke;
-    border-radius: 0.25rem 0.25rem 0 0;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    padding: 1rem;
-
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 0.25rem 0.25rem 0 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  padding: 1rem;
 }
 
 nav * {
-    color: black !important;
-    text-decoration: none;
+  color: black !important;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
 }
 
 body {
-    margin: 0;
-    background-color: whitesmoke;
-    border-radius: 0.25rem;
-    margin: 1.5rem 1.5rem 0 1.5rem;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: whitesmoke;
+  border-radius: 0.25rem;
+  margin: 1.5rem;
+  font-family: "Poppins", sans-serif;
 }
 
+#landing-page-body {
+  margin: 1.5vh;
+  height: 97vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 30px;
-    gap: 0.7rem;
+#landing-page-image {
+  width: 40vw;
+  height: auto;
+}
+
+#landing-page-body > .search-container {
+  border-bottom: none;
+}
+
+#landing-page-body > .search-container > form {
+  flex-direction: column;
 }
 
 .cards-container {
-    width: 30vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.card {
-    background-color: white;
-    border-radius: 0.25rem;
+.job-card {
+  border: 1px solid var(--slate);
+  padding: 1rem;
+  color: black;
+  margin: 0 !important;
+  height: 25vh;
+  min-height: 200px !important;
 }
 
-.card * {
-    color: black;
+.card-title {
+  font-weight: 600 !important;
+  color: var(--slate);
 }
 
-.info-container {
-    position: sticky;
-    top: 0;
-    width: 20%;
+.card-content {
+  height: 100% !important;
 }
 
-.info-container .info-card {
-    width: 100% !important;
-    height: 50%;
+.card-reveal {
+  overflow-x: hidden;
 }
 
-.info-container .card-panel {
-    background-color: var(--splitochre);
-    height: 100%;
+.card-reveal > .card-title {
+  font-size: 12px;
+  display: flex !important;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.card-reveal > a {
+  width: max-content;
+  height: max-content;
+}
+
+dd {
+  margin-left: 1rem;
+}
+
+.row::after {
+  content: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pagination-btn {
+  width: 138px;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid grey;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+#city-state {
+  font-size: 2vw;
+  text-align: center;
+  font-weight: 600;
+  color:rgb(35,167,153);
 }
