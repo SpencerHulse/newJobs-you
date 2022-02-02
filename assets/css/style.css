@@ -24,7 +24,12 @@ html {
   align-items: center;
   border-bottom: 1px solid grey;
   height: auto;
-  padding-bottom: 20px;
+  padding: 20px 0;
+}
+
+.search-container img {
+  width: 40vw;
+  height: auto;
 }
 
 .search-container form {
