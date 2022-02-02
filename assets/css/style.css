@@ -31,6 +31,7 @@ html {
   width: 30vw;
   height: auto;
   padding-top: 1rem;
+  cursor: pointer;
 }
 
 .search-container form {
@@ -88,7 +89,7 @@ body {
   justify-content: center;
 }
 
-#landing-page-body > img {
+#landing-page-image {
   width: 40vw;
   height: auto;
 }
