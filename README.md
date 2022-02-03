@@ -6,6 +6,8 @@ It is an application that allows you to see job listings in your area using your
 
 ![alt text](./assets/images/newjobsyou-screenshot.png)
 
+[Deployed Link](https://spencerhulse.github.io/newJobs-you/landingpage.html)
+
 ## Table of Contents
 
 - [Installation](#installation)
