@@ -4,6 +4,8 @@
 
 It is an application that allows you to see job listings in your area using your zip code.
 
+[Deployed Link](https://spencerhulse.github.io/newJobs-you/landingpage.html)
+
 ## Table of Contents
 
 - [Installation](#installation)
