@@ -4,6 +4,8 @@
 
 It is an application that allows you to see job listings in your area using your zip code.
 
+![alt text](./assets/images/newjobsyou-screenshot.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
